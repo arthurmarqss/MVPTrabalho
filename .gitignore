@@ -1,0 +1,7 @@
+target/
+nbactions.xml
+nb-configuration.xml
+.DS_Store
+
+# Arquivos pessoais que não fazem parte do trabalho
+estudos-rochas/
