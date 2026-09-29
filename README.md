@@ -6,6 +6,7 @@ Aplicação desktop em Java para cadastro de produtos e categorias, cálculo do 
 
 | Nome | Matrícula |
 |---|---|
+| Arthur Marques Campos | 2022200209 |
 | Hiago do Carmo Lopes | 2022200636 |
 | Gustavo Wesley de Souza | 2023200945 |
 
