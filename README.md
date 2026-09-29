@@ -25,6 +25,8 @@ mvn compile exec:java
 
 Também é possível abrir a pasta no NetBeans e executar o projeto com **Run**.
 
+Como os repositórios são em memória, os dados cadastrados se perdem ao fechar a aplicação. A cada nova execução o Seeder recarrega os dados iniciais.
+
 ## Organização
 
 | Pacote | Responsabilidade |
