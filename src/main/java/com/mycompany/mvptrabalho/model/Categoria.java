@@ -1,9 +1,5 @@
 package com.mycompany.mvptrabalho.model;
 
-/**
- * Categoria de produtos. O percentual de lucro é a margem usada no cálculo
- * do preço de venda dos produtos associados a ela.
- */
 public class Categoria {
 
     private Long id;
@@ -19,10 +15,6 @@ public class Categoria {
         return id;
     }
 
-    /**
-     * Chamado apenas pelo repositório, no momento da inclusão, para atribuir
-     * o identificador interno.
-     */
     public void setId(Long id) {
         this.id = id;
     }

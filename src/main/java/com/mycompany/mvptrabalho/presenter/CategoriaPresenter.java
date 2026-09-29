@@ -7,10 +7,6 @@ import com.mycompany.mvptrabalho.view.CategoriaView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Presenter do cadastro mestre-detalhe de categorias. Controla os três
- * modos da tela (seção 10 da especificação) e o estado dos botões.
- */
 public class CategoriaPresenter {
 
     private enum Modo {
@@ -28,11 +24,9 @@ public class CategoriaPresenter {
     private final CategoriaView view;
     private final CategoriaServico categoriaServico;
 
-    // Mesma ordem das linhas da tabela.
     private List<Categoria> categorias = new ArrayList<>();
     private Categoria selecionada;
     private Modo modo;
-    // Evita reagir aos eventos de seleção disparados pelo próprio Presenter.
     private boolean atualizandoTabela;
 
     public CategoriaPresenter(CategoriaView view, CategoriaServico categoriaServico) {
@@ -105,7 +99,6 @@ public class CategoriaPresenter {
             carregarTabela(salva);
             entrarModoVisualizacao();
         } catch (IllegalArgumentException e) {
-            // Continua no mesmo modo para o usuário corrigir os dados.
             view.exibirErro(e.getMessage());
         }
     }
@@ -130,7 +123,6 @@ public class CategoriaPresenter {
         view.setBotoesHabilitados(true, temSelecao, temSelecao, false, false, true);
     }
 
-    /** Inclusão e edição: só Salvar e Cancelar ficam habilitados. */
     private void habilitarEdicao() {
         view.setModo(modo.descricao);
         view.setCamposEditaveis(true);
@@ -138,10 +130,6 @@ public class CategoriaPresenter {
         view.setBotoesHabilitados(false, false, false, true, true, false);
     }
 
-    /**
-     * Recarrega a tabela e seleciona a categoria informada (ou a primeira,
-     * se ela for null ou não existir mais).
-     */
     private void carregarTabela(Categoria aSelecionar) {
         atualizandoTabela = true;
         try {

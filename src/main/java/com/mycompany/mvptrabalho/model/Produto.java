@@ -1,10 +1,5 @@
 package com.mycompany.mvptrabalho.model;
 
-/**
- * Produto cadastrado. A margem de lucro atual e o preço de venda atual são
- * dados calculados: só mudam pelo processo de cálculo de preços, por isso
- * não possuem setters livres.
- */
 public class Produto {
 
     private Long id;
@@ -12,7 +7,6 @@ public class Produto {
     private Double precoCusto;
     private Categoria categoria;
 
-    // Resultado do último cálculo. Ficam null enquanto não houver cálculo.
     private Double margemLucroAtual;
     private Double precoVendaAtual;
 
@@ -26,10 +20,6 @@ public class Produto {
         return id;
     }
 
-    /**
-     * Chamado apenas pelo repositório, no momento da inclusão, para atribuir
-     * o identificador interno.
-     */
     public void setId(Long id) {
         this.id = id;
     }
@@ -66,10 +56,6 @@ public class Produto {
         return precoVendaAtual;
     }
 
-    /**
-     * Registra o resultado de um cálculo de preços. É a única forma de
-     * alterar a margem e o preço de venda atuais.
-     */
     public void registrarPrecoCalculado(Double margemLucro, Double precoVenda) {
         this.margemLucroAtual = margemLucro;
         this.precoVendaAtual = precoVenda;

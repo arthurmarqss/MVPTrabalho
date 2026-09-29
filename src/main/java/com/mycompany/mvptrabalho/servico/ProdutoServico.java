@@ -11,9 +11,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Regras de negócio do cadastro e da consulta de produtos.
- */
 public class ProdutoServico {
 
     private final ProdutoRepository produtoRepository;
@@ -33,7 +30,6 @@ public class ProdutoServico {
         return produtoRepository.buscarPorId(id);
     }
 
-    /** Texto vazio devolve todos os produtos. */
     public List<Produto> buscarPorNome(String texto) {
         if (texto == null || texto.isBlank()) {
             return produtoRepository.listarTodos();
@@ -41,7 +37,6 @@ public class ProdutoServico {
         return produtoRepository.buscarPorNome(texto.trim());
     }
 
-    /** Texto vazio devolve todos os produtos. */
     public List<Produto> buscarPorCategoria(String texto) {
         if (texto == null || texto.isBlank()) {
             return produtoRepository.listarTodos();
@@ -62,7 +57,6 @@ public class ProdutoServico {
         Produto produto = produtoRepository.buscarPorId(id)
                 .orElseThrow(() -> new IllegalArgumentException("Produto não encontrado."));
 
-        // Valida tudo antes de alterar qualquer atributo.
         Categoria categoria = validar(nome, precoCusto, categoriaId);
 
         produto.setNome(nome.trim());
@@ -73,14 +67,12 @@ public class ProdutoServico {
         return produto;
     }
 
-    /** Histórico do produto, do cálculo mais recente para o mais antigo. */
     public List<HistoricoPreco> listarHistorico(Produto produto) {
         List<HistoricoPreco> historico = new ArrayList<>(historicoRepository.listarPorProduto(produto));
         historico.sort(Comparator.comparing(HistoricoPreco::getDataCalculo).reversed());
         return historico;
     }
 
-    /** Valida os dados e devolve a categoria encontrada no repositório. */
     private Categoria validar(String nome, Double precoCusto, Long categoriaId) {
         if (nome == null || nome.isBlank()) {
             throw new IllegalArgumentException("O nome do produto é obrigatório.");

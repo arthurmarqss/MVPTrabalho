@@ -3,10 +3,6 @@ package com.mycompany.mvptrabalho.view;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 
-/**
- * Implementação Swing da fábrica: cria cada janela interna e a adiciona à
- * área de trabalho da tela principal.
- */
 public class FabricaTelasSwing implements FabricaTelas {
 
     private final JDesktopPane areaTrabalho;

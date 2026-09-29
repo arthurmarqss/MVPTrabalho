@@ -8,9 +8,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Presenter da tela de cálculo global dos preços de venda.
- */
 public class CalculoPrecoPresenter {
 
     private final CalculoPrecoView view;
@@ -45,7 +42,6 @@ public class CalculoPrecoPresenter {
             atualizarInformacao();
             view.exibirMensagem("Cálculo realizado com sucesso para " + produtos.size() + " produtos.");
         } catch (RegraNegocioException | IllegalArgumentException e) {
-            // O serviço valida tudo antes de alterar: nenhum dado foi modificado.
             view.exibirErro(e.getMessage());
         }
     }

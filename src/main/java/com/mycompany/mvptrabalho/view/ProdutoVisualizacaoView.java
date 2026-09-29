@@ -2,9 +2,6 @@ package com.mycompany.mvptrabalho.view;
 
 import com.mycompany.mvptrabalho.presenter.ProdutoVisualizacaoPresenter;
 
-/**
- * Contrato da tela de visualização de produto (somente leitura).
- */
 public interface ProdutoVisualizacaoView {
 
     void setPresenter(ProdutoVisualizacaoPresenter presenter);

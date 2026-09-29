@@ -8,9 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-/**
- * Implementação em memória do repositório de produtos.
- */
 public class ProdutoRepositoryMemoria implements ProdutoRepository {
 
     private final Map<Long, Produto> produtos = new LinkedHashMap<>();

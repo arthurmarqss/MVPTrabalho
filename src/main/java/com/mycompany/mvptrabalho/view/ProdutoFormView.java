@@ -3,9 +3,6 @@ package com.mycompany.mvptrabalho.view;
 import com.mycompany.mvptrabalho.presenter.ProdutoFormPresenter;
 import java.util.List;
 
-/**
- * Contrato da tela de produto nos modos de inclusão e edição.
- */
 public interface ProdutoFormView {
 
     void setPresenter(ProdutoFormPresenter presenter);
@@ -24,7 +21,6 @@ public interface ProdutoFormView {
 
     void setCategorias(List<String> nomes);
 
-    /** Índice da categoria selecionada, ou -1 se nenhuma. */
     int getIndiceCategoria();
 
     void setIndiceCategoria(int indice);

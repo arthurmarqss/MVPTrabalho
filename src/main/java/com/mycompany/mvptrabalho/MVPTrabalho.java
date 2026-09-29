@@ -19,17 +19,13 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
-/**
- * Ponto de entrada: monta as camadas (repositórios, serviços), executa o
- * Seeder e só então abre a tela principal.
- */
 public class MVPTrabalho {
 
     public static void main(String[] args) {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
-            // Sem o visual do sistema operacional, o Swing usa o visual padrão.
+            System.err.println("Visual do sistema indisponível, usando o padrão do Swing: " + e.getMessage());
         }
 
         CategoriaRepository categoriaRepository = new CategoriaRepositoryMemoria();

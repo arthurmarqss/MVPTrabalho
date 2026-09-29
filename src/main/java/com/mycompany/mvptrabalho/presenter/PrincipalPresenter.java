@@ -2,10 +2,6 @@ package com.mycompany.mvptrabalho.presenter;
 
 import com.mycompany.mvptrabalho.view.PrincipalView;
 
-/**
- * Presenter da tela principal: repassa as opções do menu "Dados" ao
- * Navegador.
- */
 public class PrincipalPresenter {
 
     private final PrincipalView view;

@@ -7,10 +7,6 @@ import com.mycompany.mvptrabalho.servico.NotificadorAlteracoes;
 import com.mycompany.mvptrabalho.servico.ProdutoServico;
 import com.mycompany.mvptrabalho.view.FabricaTelas;
 
-/**
- * Centraliza a navegação entre as telas (Figura 8 da especificação). Cada
- * método cria a View pela fábrica e liga a ela o Presenter correspondente.
- */
 public class Navegador {
 
     private final FabricaTelas fabrica;

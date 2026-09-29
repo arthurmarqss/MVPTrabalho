@@ -8,10 +8,6 @@ import com.mycompany.mvptrabalho.view.BuscaProdutoView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Presenter da busca de produtos. Observa as alterações de dados para
- * atualizar a tabela quando um produto é salvo ou os preços são calculados.
- */
 public class BuscaProdutoPresenter implements Observador {
 
     private static final int BUSCA_POR_CATEGORIA = 1;
@@ -21,7 +17,6 @@ public class BuscaProdutoPresenter implements Observador {
     private final NotificadorAlteracoes notificador;
     private final Navegador navegador;
 
-    // Mesma ordem das linhas da tabela: o índice da linha é o índice aqui.
     private List<Produto> produtosExibidos = new ArrayList<>();
 
     public BuscaProdutoPresenter(BuscaProdutoView view, ProdutoServico produtoServico,
@@ -63,7 +58,6 @@ public class BuscaProdutoPresenter implements Observador {
         view.fechar();
     }
 
-    /** Chamado pela View quando a janela é fechada (botão ou "X"). */
     public void aoFecharTela() {
         notificador.remover(this);
     }

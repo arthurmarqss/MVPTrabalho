@@ -14,10 +14,6 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
-/**
- * Rotinas visuais repetidas em várias telas. Só contém código de
- * apresentação Swing, nenhuma regra de negócio.
- */
 public final class UtilTela {
 
     private UtilTela() {
@@ -35,20 +31,15 @@ public final class UtilTela {
         try {
             tela.setSelected(true);
         } catch (PropertyVetoException e) {
-            // A seleção foi recusada pelo Swing: a tela continua visível.
+            System.err.println("Não foi possível selecionar a janela: " + e.getMessage());
         }
     }
 
-    /**
-     * Libera ou bloqueia a digitação no campo. Campos bloqueados ficam com o
-     * fundo cinza, para o usuário perceber que são somente leitura.
-     */
     public static void definirEditavel(JTextField campo, boolean editavel) {
         campo.setEditable(editavel);
         campo.setBackground(UIManager.getColor(editavel ? "TextField.background" : "Panel.background"));
     }
 
-    /** Tabela somente leitura, com uma linha selecionável por vez. */
     public static void configurarTabela(JTable tabela, int... colunasADireita) {
         tabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         tabela.getTableHeader().setReorderingAllowed(false);

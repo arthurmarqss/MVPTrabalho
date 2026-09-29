@@ -6,9 +6,6 @@ import com.mycompany.mvptrabalho.repositorio.ProdutoRepository;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Regras de negócio do cadastro de categorias.
- */
 public class CategoriaServico {
 
     private final CategoriaRepository categoriaRepository;
@@ -39,16 +36,10 @@ public class CategoriaServico {
         return categoria;
     }
 
-    /**
-     * Altera nome e percentual. Não recalcula produtos nem mexe no histórico:
-     * o novo percentual só vale no próximo cálculo de preços.
-     */
     public Categoria alterar(Long id, String nome, Double percentualLucro) {
         Categoria categoria = categoriaRepository.buscarPorId(id)
                 .orElseThrow(() -> new IllegalArgumentException("Categoria não encontrada."));
 
-        // Valida tudo ANTES de alterar: uma operação inválida não pode
-        // modificar os dados em memória.
         validar(nome, percentualLucro, id);
 
         categoria.setNome(nome.trim());
@@ -71,10 +62,6 @@ public class CategoriaServico {
         notificador.notificar();
     }
 
-    /**
-     * @param idIgnorado id da própria categoria em edição, para que ela não
-     *                   seja considerada duplicada dela mesma (null na inclusão)
-     */
     private void validar(String nome, Double percentualLucro, Long idIgnorado) {
         if (nome == null || nome.isBlank()) {
             throw new IllegalArgumentException("O nome da categoria é obrigatório.");

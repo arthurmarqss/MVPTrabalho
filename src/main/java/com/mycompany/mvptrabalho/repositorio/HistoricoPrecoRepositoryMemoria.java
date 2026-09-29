@@ -7,9 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Implementação em memória do repositório de históricos de preço.
- */
 public class HistoricoPrecoRepositoryMemoria implements HistoricoPrecoRepository {
 
     private final List<HistoricoPreco> historicos = new ArrayList<>();

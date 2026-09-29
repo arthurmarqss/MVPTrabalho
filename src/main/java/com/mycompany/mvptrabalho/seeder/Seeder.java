@@ -9,11 +9,6 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Popula os repositórios em memória a cada inicialização (seção 12 da
- * especificação). Usa os serviços, e não os repositórios diretamente, para
- * que os dados iniciais passem pelas mesmas validações do sistema.
- */
 public class Seeder {
 
     private final CategoriaServico categoriaServico;
@@ -69,10 +64,6 @@ public class Seeder {
         produto("Esponja multiuso", "Limpeza", 1.70);
     }
 
-    /**
-     * Primeiro cálculo há 10 dias, com a mesma regra da tela de cálculo:
-     * a tela de histórico já tem dados e um novo cálculo hoje é permitido.
-     */
     private void criarHistoricoInicial() throws RegraNegocioException {
         calculoPrecoServico.calcularTodos(LocalDate.now().minusDays(CalculoPrecoServico.INTERVALO_MINIMO_DIAS));
     }

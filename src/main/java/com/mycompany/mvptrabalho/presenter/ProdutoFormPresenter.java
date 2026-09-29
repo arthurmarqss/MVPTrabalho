@@ -10,10 +10,6 @@ import com.mycompany.mvptrabalho.view.ProdutoFormView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Presenter da tela de produto nos modos de inclusão e edição. A mesma tela
- * serve aos dois modos: produto null significa inclusão.
- */
 public class ProdutoFormPresenter implements Observador {
 
     private final ProdutoFormView view;
@@ -22,7 +18,6 @@ public class ProdutoFormPresenter implements Observador {
     private final NotificadorAlteracoes notificador;
     private final Produto produto;
 
-    // Mesma ordem dos itens da lista "Categoria do produto".
     private List<Categoria> categorias = new ArrayList<>();
 
     public ProdutoFormPresenter(ProdutoFormView view, ProdutoServico produtoServico,
@@ -57,7 +52,6 @@ public class ProdutoFormPresenter implements Observador {
             view.exibirMensagem("Item salvo com sucesso!");
             view.fechar();
         } catch (IllegalArgumentException e) {
-            // Nada foi gravado: o serviço valida antes de alterar os dados.
             view.exibirErro(e.getMessage());
         }
     }
@@ -70,7 +64,6 @@ public class ProdutoFormPresenter implements Observador {
         notificador.remover(this);
     }
 
-    /** Uma categoria foi incluída, alterada ou excluída em outra tela. */
     @Override
     public void dadosAlterados() {
         carregarCategorias();
@@ -88,7 +81,6 @@ public class ProdutoFormPresenter implements Observador {
         view.setPrecoVenda(Formatador.moeda(produto.getPrecoVendaAtual()));
     }
 
-    /** Recarrega a lista a partir do repositório, mantendo a seleção atual. */
     private void carregarCategorias() {
         Long selecionada = getIdCategoriaSelecionada();
 

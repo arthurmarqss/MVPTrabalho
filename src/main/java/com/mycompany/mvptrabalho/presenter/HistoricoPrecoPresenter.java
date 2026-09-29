@@ -9,10 +9,6 @@ import com.mycompany.mvptrabalho.view.HistoricoPrecoView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Presenter do histórico de preços de um produto (somente consulta, do mais
- * recente para o mais antigo).
- */
 public class HistoricoPrecoPresenter implements Observador {
 
     private final HistoricoPrecoView view;

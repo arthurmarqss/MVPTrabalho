@@ -7,10 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-/**
- * Implementação em memória: os dados vivem em um Map enquanto a aplicação
- * estiver aberta.
- */
 public class CategoriaRepositoryMemoria implements CategoriaRepository {
 
     private final Map<Long, Categoria> categorias = new LinkedHashMap<>();
@@ -43,7 +39,6 @@ public class CategoriaRepositoryMemoria implements CategoriaRepository {
 
     @Override
     public List<Categoria> listarTodas() {
-        // Devolve uma cópia para que ninguém altere a coleção interna.
         return new ArrayList<>(categorias.values());
     }
 }

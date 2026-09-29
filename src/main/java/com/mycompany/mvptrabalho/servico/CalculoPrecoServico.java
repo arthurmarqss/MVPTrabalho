@@ -12,10 +12,6 @@ import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Cálculo global dos preços de venda e regra do intervalo mínimo entre
- * cálculos.
- */
 public class CalculoPrecoServico {
 
     public static final int INTERVALO_MINIMO_DIAS = 10;
@@ -33,20 +29,10 @@ public class CalculoPrecoServico {
         this.notificador = notificador;
     }
 
-    /**
-     * Preço de venda = Preço de custo x (1 + Percentual de lucro / 100),
-     * arredondado para duas casas decimais.
-     */
     public Double calcularPrecoVenda(Double precoCusto, Double percentualLucro) {
         return arredondar(precoCusto * (1 + percentualLucro / 100));
     }
 
-    /**
-     * Calcula o preço de todos os produtos na data informada, atualiza os
-     * valores atuais de cada um e registra um histórico por produto.
-     *
-     * @return os produtos processados, já com os novos valores
-     */
     public List<Produto> calcularTodos(LocalDate dataCalculo) throws RegraNegocioException {
         if (dataCalculo == null) {
             throw new IllegalArgumentException("A data do cálculo é obrigatória.");
@@ -59,7 +45,6 @@ public class CalculoPrecoServico {
         }
 
         for (Produto produto : produtos) {
-            // Percentual vigente da categoria NA DATA do cálculo.
             Double percentual = produto.getCategoria().getPercentualLucro();
             Double precoVenda = calcularPrecoVenda(produto.getPrecoCusto(), percentual);
 
@@ -92,7 +77,6 @@ public class CalculoPrecoServico {
     }
 
     private Double arredondar(double valor) {
-        // BigDecimal.valueOf evita erros de arredondamento do double (ex.: 1.005).
         return BigDecimal.valueOf(valor).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 }

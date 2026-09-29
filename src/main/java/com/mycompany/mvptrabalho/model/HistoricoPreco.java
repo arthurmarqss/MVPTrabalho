@@ -2,11 +2,6 @@ package com.mycompany.mvptrabalho.model;
 
 import java.time.LocalDate;
 
-/**
- * Registro imutável de um cálculo de preço. Guarda uma cópia do percentual
- * usado (e não a categoria), para que alterações posteriores na margem da
- * categoria não modifiquem o histórico.
- */
 public class HistoricoPreco {
 
     private final Produto produto;

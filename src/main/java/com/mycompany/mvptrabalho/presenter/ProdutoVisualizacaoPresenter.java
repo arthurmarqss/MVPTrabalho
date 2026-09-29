@@ -6,10 +6,6 @@ import com.mycompany.mvptrabalho.servico.Observador;
 import com.mycompany.mvptrabalho.servico.ProdutoServico;
 import com.mycompany.mvptrabalho.view.ProdutoVisualizacaoView;
 
-/**
- * Presenter da visualização de produto. Mostra a categoria atual e o
- * resultado do último cálculo (não o percentual atual da categoria).
- */
 public class ProdutoVisualizacaoPresenter implements Observador {
 
     private final ProdutoVisualizacaoView view;
@@ -36,7 +32,6 @@ public class ProdutoVisualizacaoPresenter implements Observador {
         navegador.abrirHistoricoPrecos(produto);
     }
 
-    /** Conforme a Figura 8, a edição substitui a visualização. */
     public void aoClicarEditar() {
         view.fechar();
         navegador.abrirEdicaoProduto(produto);
